@@ -252,7 +252,7 @@ public class IconTurnOrder {
 
   private void buildTurnOrderTexture(final int index, Path path, final boolean player) {
     if(!Files.exists(path)) {
-      path = Path.of("gfx", "ui", "turnorder", player ? "player" : "monster", "unknown.png");
+      path = Path.of("mods", "iconturnorder", player ? "player" : "monster", "unknown.png");
     }
 
     final ByteBuffer imageBuffer;
