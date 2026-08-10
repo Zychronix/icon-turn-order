@@ -87,7 +87,7 @@ public class IconTurnOrder {
   public void drawTurnOrder() {
     final int textureCount = battleState_8006e398.allBents_e0c.size() + 2;
     if(this.turnOrderOverlay == null) {
-      this.turnOrderTexture = Texture.create(builder -> {
+      this.turnOrderTexture = Texture.create("turn_order_texture", builder -> {
         builder.data(new int[240 * (textureCount * 120)], 240, (textureCount * 120));
         builder.internalFormat(GL_RGBA);
         builder.dataFormat(GL_RGBA);
