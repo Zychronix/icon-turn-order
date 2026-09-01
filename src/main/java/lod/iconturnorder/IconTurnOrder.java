@@ -1,12 +1,16 @@
 package lod.iconturnorder;
 
 import legend.core.GameEngine;
-import legend.core.QueuedModelStandard;
 import legend.core.gpu.Bpp;
 import legend.core.gte.MV;
-import legend.core.opengl.Obj;
-import legend.core.opengl.QuadBuilder;
-import legend.core.opengl.Texture;
+import legend.core.renderer.Obj;
+import legend.core.renderer.QuadBuilder;
+import legend.core.renderer.QueuedModelStandard;
+import legend.core.renderer.Texture;
+import legend.core.renderer.TextureDataFormat;
+import legend.core.renderer.TextureDataType;
+import legend.core.renderer.TextureInternalFormat;
+import legend.core.renderer.Translucency;
 import legend.game.combat.Battle;
 import legend.game.combat.bent.BattleEntity27c;
 import legend.game.combat.bent.MonsterBattleEntity;
@@ -17,12 +21,12 @@ import legend.game.modding.events.battle.BattleEndedEvent;
 import legend.game.modding.events.battle.BattleStartedEvent;
 import legend.game.saves.ConfigRegistryEvent;
 import legend.game.scripting.ScriptState;
-import legend.game.types.Translucency;
 import legend.lodmod.LodMod;
 import legend.turnorder.TurnOrder;
 import org.legendofdragoon.modloader.Mod;
 import org.legendofdragoon.modloader.events.EventListener;
 import org.legendofdragoon.modloader.registries.RegistryId;
+import org.lwjgl.BufferUtils;
 import org.lwjgl.system.MemoryStack;
 
 import java.io.IOException;
@@ -88,10 +92,10 @@ public class IconTurnOrder {
     final int textureCount = battleState_8006e398.allBents_e0c.size() + 2;
     if(this.turnOrderOverlay == null) {
       this.turnOrderTexture = Texture.create("turn_order_texture", builder -> {
-        builder.data(new int[240 * (textureCount * 120)], 240, (textureCount * 120));
-        builder.internalFormat(GL_RGBA);
-        builder.dataFormat(GL_RGBA);
-        builder.dataType(GL_UNSIGNED_INT_8_8_8_8_REV);
+        builder.data(BufferUtils.createIntBuffer(240 * (textureCount * 120)), 240, (textureCount * 120));
+        builder.internalFormat(TextureInternalFormat.RGBA_8);
+        builder.dataFormat(TextureDataFormat.RGBA);
+        builder.dataType(TextureDataType.UBYTE);
       });
 
       for(int bentIndex = 0; bentIndex < battleState_8006e398.allBents_e0c.size(); bentIndex++) {
@@ -273,7 +277,7 @@ public class IconTurnOrder {
         throw new RuntimeException("Failed to load image: " + stbi_failure_reason());
       }
 
-      this.turnOrderTexture.data(0, 120 * index, 240, 120, data);
+      this.turnOrderTexture.data(0, 120 * index, 240, 120, TextureDataType.UBYTE, data);
     }
   }
 
