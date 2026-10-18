@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "icon-turn-order"
-version = "1.3-SNAPSHOT"
+version = "1.4"
 
 java {
   sourceCompatibility = JavaVersion.VERSION_25
