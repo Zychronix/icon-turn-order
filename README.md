@@ -7,9 +7,4 @@ Icon Turn Order display is the standalone mod of the Icon Turn Order display ori
 
 # Installation
 
-Drag and drop it into the Severed Chains/mods folder. If a "mods" folder does not exist create one.
-
-# Known Issues
-The following monsters are missing from the turn order and will be displayed with a "?"
-
-Crafty Thief, DD Ball, DD Cannon, Windigo Heart, Michael (core), Madman
+Drag and drop it into the Severed Chains/mods folder. 
