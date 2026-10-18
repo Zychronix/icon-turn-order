@@ -101,7 +101,7 @@ public class IconTurnOrder {
       for(int bentIndex = 0; bentIndex < battleState_8006e398.allBents_e0c.size(); bentIndex++) {
         if(battleState_8006e398.allBents_e0c.get(bentIndex) != null) {
           if(battleState_8006e398.allBents_e0c.get(bentIndex).innerStruct_00 instanceof PlayerBattleEntity) {
-            this.buildTurnOrderTexture(bentIndex, Path.of("mods", "iconturnorder", "player", String.valueOf(((PlayerBattleEntity)battleState_8006e398.allBents_e0c.get(bentIndex).innerStruct_00).charId_272) + ".png"), true);
+            this.buildTurnOrderTexture(bentIndex, Path.of("mods", "iconturnorder", "player", String.valueOf(((PlayerBattleEntity)battleState_8006e398.allBents_e0c.get(bentIndex).innerStruct_00).character.template.getRegistryId().toString().replace(':', '_')) + ".png"), true);
           } else {
             this.buildTurnOrderTexture(bentIndex, Path.of("mods", "iconturnorder", "monster", String.valueOf(((BattleEntity27c)battleState_8006e398.allBents_e0c.get(bentIndex).innerStruct_00).charId_272) + ".png"), false);
           }
