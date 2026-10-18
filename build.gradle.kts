@@ -40,7 +40,7 @@ dependencies {
   implementation("com.github.JnCrMx:discord-game-sdk4j:v1.0.0")
   implementation("org.bytedeco:javacv:1.5.13")
   implementation("org.bytedeco:ffmpeg:8.0-1.5.13:windows-x86_64")
-  api("org.legendofdragoon:mod-loader:4.3.3")
+  api("org.legendofdragoon:mod-loader:4.3.5")
   api("org.legendofdragoon:script-recompiler:0.7.11")
   api("org.legendofdragoon:mogul-dabas:0.0.1")
 }
